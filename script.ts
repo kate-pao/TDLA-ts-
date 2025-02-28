@@ -84,8 +84,15 @@ function filterTasks(): void {
         const task = tasks[i].querySelector('span');
 
         if (task) {
-            const taskText = task.textContent?.toLowerCase()||'';  // handle undefined cases
-            tasks[i].style.display = taskText.includes(filterVal)?'':'none'; // Show filtered task, otherwise make it hidden
+            const taskText = task.textContent?.toLowerCase()||''; // Undetified cases check
+
+            if (taskText.includes(filterVal)) {
+                tasks[i].style.display = ''; // Show matched tasks
+            }else{
+                tasks[i].style.display = 'none'; // Hide non-matched task
+            }
+        }else{
+            tasks[i].style.display = 'none'; // Hide by default
         }
     }
 }
