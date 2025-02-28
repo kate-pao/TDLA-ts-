@@ -85,7 +85,7 @@ function filterTasks(): void {
 
         if (task) {
             const taskText = task.textContent?.toLowerCase()||'';  // handle undefined cases
-            tasks[i].style.display = taskText.includes(filterVal)?'': 'none'; // Show filtered task, otherwise make it hidden
+            tasks[i].style.display = taskText.includes(filterVal)?'':'none'; // Show filtered task, otherwise make it hidden
         }
     }
 }
