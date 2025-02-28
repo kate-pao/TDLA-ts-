@@ -66,8 +66,16 @@ function filterTasks() {
     for (var i = 0; i < tasks.length; i++) {
         var task = tasks[i].querySelector('span');
         if (task) {
-            var taskText = ((_a = task.textContent) === null || _a === void 0 ? void 0 : _a.toLowerCase()) || ''; // handle undefined cases
-            tasks[i].style.display = taskText.includes(filterVal) ? '' : 'none'; // Show filtered task, otherwise make it hidden
+            var taskText = ((_a = task.textContent) === null || _a === void 0 ? void 0 : _a.toLowerCase()) || ''; // Undetified cases check
+            if (taskText.includes(filterVal)) {
+                tasks[i].style.display = ''; // Show matched tasks
+            }
+            else {
+                tasks[i].style.display = 'none'; // Hide non-matched task
+            }
+        }
+        else {
+            tasks[i].style.display = 'none'; // Hide by default
         }
     }
 }
